@@ -6,10 +6,11 @@ import (
 )
 
 func main() {
-	arr := []int{1, 2, 3, 4, 5}
-	n := 2
-
-	// Вызов функции EachCons из пакета CodeWars
-	result := CodeWars.EachCons(arr, n)
-	fmt.Println("Результат функции EachCons:", result)
+	// Тестирование метода IsUpperCase
+	fmt.Println(CodeWars.MyString("c").IsUpperCase())                      // false
+	fmt.Println(CodeWars.MyString("C").IsUpperCase())                      // true
+	fmt.Println(CodeWars.MyString("hello I AM DONALD").IsUpperCase())      // false
+	fmt.Println(CodeWars.MyString("HELLO I AM DONALD").IsUpperCase())      // true
+	fmt.Println(CodeWars.MyString("ACSKLDFJSgSKLDFJSKLDFJ").IsUpperCase()) // false
+	fmt.Println(CodeWars.MyString("ACSKLDFJSGSKLDFJSKLDFJ").IsUpperCase()) // true
 }
