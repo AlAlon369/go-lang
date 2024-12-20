@@ -6,11 +6,11 @@ import (
 )
 
 func main() {
-	// Тестирование метода IsUpperCase
-	fmt.Println(CodeWars.MyString("c").IsUpperCase())                      // false
-	fmt.Println(CodeWars.MyString("C").IsUpperCase())                      // true
-	fmt.Println(CodeWars.MyString("hello I AM DONALD").IsUpperCase())      // false
-	fmt.Println(CodeWars.MyString("HELLO I AM DONALD").IsUpperCase())      // true
-	fmt.Println(CodeWars.MyString("ACSKLDFJSgSKLDFJSKLDFJ").IsUpperCase()) // false
-	fmt.Println(CodeWars.MyString("ACSKLDFJSGSKLDFJSKLDFJ").IsUpperCase()) // true
+	// Примеры для проверки функции NthEven
+	testCases := []int{1, 3, 100, 1298734}
+
+	for _, n := range testCases {
+		result := CodeWars.NthEven(n)
+		fmt.Printf("NthEven(%d) = %d\n", n, result)
+	}
 }
