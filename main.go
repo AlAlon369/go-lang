@@ -6,11 +6,11 @@ import (
 )
 
 func main() {
-	// Примеры для проверки функции EvenOrOdd
-	testCases := []int{1, 3, 100, 1298734, 42, 7}
+	// Примеры для проверки функции Digitize
+	testCases := []int{35231, 0, 1, 3, 100, 1298734, 42, 7}
 
 	for _, n := range testCases {
-		result := CodeWars.EvenOrOdd(n)
-		fmt.Printf("EvenOrOdd(%d) = %s\n", n, result)
+		result := CodeWars.Digitize(n)
+		fmt.Printf("Digitize(%d) = %v\n", n, result)
 	}
 }
