@@ -6,11 +6,11 @@ import (
 )
 
 func main() {
-	// Примеры для проверки функции Digitize
-	testCases := []int{35231, 0, 1, 3, 100, 1298734, 42, 7}
+	// Примеры для проверки функции AmIWilson
+	testCases := []int{5, 13, 563, 7, 1, 0, 10, 6}
 
 	for _, n := range testCases {
-		result := CodeWars.Digitize(n)
-		fmt.Printf("Digitize(%d) = %v\n", n, result)
+		result := CodeWars.AmIWilson(n)
+		fmt.Printf("AmIWilson(%d) = %v\n", n, result)
 	}
 }
