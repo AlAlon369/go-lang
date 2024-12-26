@@ -1,16 +1,12 @@
 package main
 
 import (
-	"Golang/CodeWars" // Импортируем пакет CodeWars
+	"Golang/CodeWars"
 	"fmt"
 )
 
 func main() {
-	// Примеры для проверки функции AmIWilson
-	testCases := []int{5, 13, 563, 7, 1, 0, 10, 6}
+	result := CodeWars.Vaporcode("Lets go to the movies")
 
-	for _, n := range testCases {
-		result := CodeWars.AmIWilson(n)
-		fmt.Printf("AmIWilson(%d) = %v\n", n, result)
-	}
+	fmt.Println(result)
 }
