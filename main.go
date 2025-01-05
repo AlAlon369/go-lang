@@ -6,12 +6,19 @@ import (
 )
 
 func main() {
-	// Пример данных
-	chores := []int{1, 5, 2, 8, 4, 9, 6, 4, 2, 2, 2, 9}
+	testCases := []struct {
+		st string
+		k  int
+	}{
+		{"1234", 1},
+		{"1234", 2},
+		{"1234", 3},
+		{"2020", 1},
+		{"987654321", 2},
+	}
 
-	// Вызываем функцию и получаем результат
-	result := CodeWars.ChoreAssignment(chores)
-
-	// Вывод результата
-	fmt.Println(result) // Ожидаемый результат: [7, 8, 8, 10, 10, 11]
+	for _, tc := range testCases {
+		result := CodeWars.Solve(tc.st, tc.k)
+		fmt.Printf("Solve(%q, %d) = %d\n", tc.st, tc.k, result)
+	}
 }
