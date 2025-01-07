@@ -2,15 +2,15 @@ package CodeWars
 
 import "sort"
 
-// TwoOldestAges возвращает два наибольших возраста из массива ages.
-func TwoOldestAges(ages []int) []int {
+// TwoOldestAges возвращает два наибольших возраста как массив [2]int.
+func TwoOldestAges(ages []int) [2]int {
 	if len(ages) < 2 {
-		return nil // Проверяем, что массив содержит минимум 2 элемента
+		panic("The input array must have at least 2 elements")
 	}
 
 	// Сортируем массив по возрастанию
 	sort.Ints(ages)
 
 	// Возвращаем два последних элемента как [второй по старшинству, самый старший]
-	return []int{ages[len(ages)-2], ages[len(ages)-1]}
+	return [2]int{ages[len(ages)-2], ages[len(ages)-1]}
 }
