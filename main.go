@@ -7,18 +7,17 @@ import (
 
 func main() {
 	testCases := []struct {
-		st string
-		k  int
+		ages []int
 	}{
-		{"1234", 1},
-		{"1234", 2},
-		{"1234", 3},
-		{"2020", 1},
-		{"987654321", 2},
+		{[]int{1, 2, 10, 8}},
+		{[]int{1, 5, 87, 45, 8, 8}},
+		{[]int{1, 3, 10, 0}},
+		{[]int{10, 15}},
+		{[]int{100, 100, 99, 98}},
 	}
 
 	for _, tc := range testCases {
-		result := CodeWars.Solve(tc.st, tc.k)
-		fmt.Printf("Solve(%q, %d) = %d\n", tc.st, tc.k, result)
+		result := CodeWars.TwoOldestAges(tc.ages)
+		fmt.Printf("TwoOldestAges(%v) = %v\n", tc.ages, result)
 	}
 }
