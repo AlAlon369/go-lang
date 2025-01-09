@@ -6,18 +6,29 @@ import (
 )
 
 func main() {
+	// Тестовые кейсы
 	testCases := []struct {
-		ages []int
+		a, b, c, d string
+		expected   int
 	}{
-		{[]int{1, 2, 10, 8}},
-		{[]int{1, 5, 87, 45, 8, 8}},
-		{[]int{1, 3, 10, 0}},
-		{[]int{10, 15}},
-		{[]int{6, 5, 83, 5, 3, 18}},
+		{"white", "black", "white", "black", 1},
+		{"white", "black", "black", "white", 2},
+		{"black", "black", "white", "white", 1},
+		{"black", "white", "white", "black", 2},
+		{"white", "white", "black", "black", 1},
 	}
 
-	for _, tc := range testCases {
-		result := CodeWars.TwoOldestAges(tc.ages)
-		fmt.Printf("TwoOldestAges(%v) = %v\n", tc.ages, result)
+	// Прогон тестов
+	for i, tc := range testCases {
+		result := CodeWars.GuessHatColor(tc.a, tc.b, tc.c, tc.d)
+		fmt.Printf("Test Case %d: a=%q, b=%q, c=%q, d=%q\n", i+1, tc.a, tc.b, tc.c, tc.d)
+		fmt.Printf("  Expected: %d, Got: %d\n", tc.expected, result)
+
+		if result == tc.expected {
+			fmt.Println("  ✅ Test Passed")
+		} else {
+			fmt.Println("  ❌ Test Failed")
+		}
+		fmt.Println("-----------------------------")
 	}
 }
