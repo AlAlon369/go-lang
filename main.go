@@ -3,31 +3,31 @@ package main
 import (
 	"Golang/CodeWars"
 	"fmt"
+	"math"
 )
 
 func main() {
 	// Тестовые кейсы
 	testCases := []struct {
-		a, b, c, d string
-		expected   int
+		a, b, c float64
 	}{
-		{"white", "black", "white", "black", 1},
-		{"white", "black", "black", "white", 2},
-		{"black", "black", "white", "white", 1},
-		{"black", "white", "white", "black", 2},
-		{"white", "white", "black", "black", 1},
+		{7, 0.40e14, 8}, // Пример из задачи
+		{1, 1e9, 1},     // Простой случай
+		{2, 1e10, 3},    // Ещё один случай
 	}
 
 	// Прогон тестов
 	for i, tc := range testCases {
-		result := CodeWars.GuessHatColor(tc.a, tc.b, tc.c, tc.d)
-		fmt.Printf("Test Case %d: a=%q, b=%q, c=%q, d=%q\n", i+1, tc.a, tc.b, tc.c, tc.d)
-		fmt.Printf("  Expected: %d, Got: %d\n", tc.expected, result)
+		x2 := CodeWars.Quadratic(tc.a, tc.b, tc.c)
+		fmt.Printf("Test Case %d: a=%.2f, b=%.2f, c=%.2f\n", i+1, tc.a, tc.b, tc.c)
+		fmt.Printf("  Solution x2: %.12e\n", x2)
 
-		if result == tc.expected {
-			fmt.Println("  ✅ Test Passed")
+		// Проверяем, что |g(x2)| < 1e-12
+		gx2 := tc.a*x2*x2 + tc.b*x2 + tc.c
+		if math.Abs(gx2) < 1e-12 {
+			fmt.Println("  ✅ abs(g(x2)) < 1e-12")
 		} else {
-			fmt.Println("  ❌ Test Failed")
+			fmt.Printf("  ❌ abs(g(x2)) = %.12e >= 1e-12\n", math.Abs(gx2))
 		}
 		fmt.Println("-----------------------------")
 	}
