@@ -1,6 +1,6 @@
 package CodeWars
 
-func Solve(slice []string) []int {
+func SolveIt(slice []string) []int {
 	results := make([]int, len(slice))
 	for i, word := range slice {
 		count := 0

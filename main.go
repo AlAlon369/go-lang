@@ -16,7 +16,7 @@ func main() {
 
 	// Прогон тестов
 	for i, testCase := range testCases {
-		result := CodeWars.Solve(testCase) // Используем правильное имя функции
+		result := CodeWars.SolveIt(testCase) // Используем правильное имя функции
 		fmt.Printf("Test Case %d: %v\n", i+1, testCase)
 		fmt.Printf("  Result: %v\n", result)
 		fmt.Println("-----------------------------")
