@@ -1,24 +1,27 @@
 package main
 
 import (
-	"Golang/CodeWars"
+	"Golang/CodeWars" // Убедитесь, что путь импорта совпадает с вашей структурой проекта
 	"fmt"
 )
 
 func main() {
 	// Тестовые кейсы
-	testCases := [][]string{
-		{"abode", "ABc", "xyzD"},     // Пример из задачи
-		{"hello", "world", "GoLang"}, // Другие слова
-		{"abc", "def", "ghi", "jkl"}, // Простые тесты
-		{"", "ABCDEF", "qrstuv"},     // Пустая строка и строки разной длины
+	testCases := []struct {
+		divisor int
+		bound   int
+	}{
+		{2, 7},    // Пример из задачи
+		{10, 50},  // Пример из задачи
+		{37, 200}, // Пример из задачи
+		{3, 10},   // Дополнительный тест
 	}
 
 	// Прогон тестов
 	for i, testCase := range testCases {
-		result := CodeWars.SolveIt(testCase) // Используем правильное имя функции
-		fmt.Printf("Test Case %d: %v\n", i+1, testCase)
-		fmt.Printf("  Result: %v\n", result)
+		result := CodeWars.MaxMultiple(testCase.divisor, testCase.bound)
+		fmt.Printf("Test Case %d: Divisor=%d, Bound=%d\n", i+1, testCase.divisor, testCase.bound)
+		fmt.Printf("  Result: %d\n", result)
 		fmt.Println("-----------------------------")
 	}
 }
