@@ -1,27 +1,20 @@
 package main
 
 import (
-	"Golang/CodeWars" // Убедитесь, что путь импорта совпадает с вашей структурой проекта
+	"Golang/CodeWars"
 	"fmt"
 )
 
 func main() {
-	// Тестовые кейсы
-	testCases := []struct {
-		divisor int
-		bound   int
-	}{
-		{2, 7},    // Пример из задачи
-		{10, 50},  // Пример из задачи
-		{37, 200}, // Пример из задачи
-		{3, 10},   // Дополнительный тест
-	}
+	// Создаем функцию addOne из пакета CodeWars
+	addOne := CodeWars.Add(1)
 
-	// Прогон тестов
-	for i, testCase := range testCases {
-		result := CodeWars.MaxMultiple(testCase.divisor, testCase.bound)
-		fmt.Printf("Test Case %d: Divisor=%d, Bound=%d\n", i+1, testCase.divisor, testCase.bound)
-		fmt.Printf("  Result: %d\n", result)
-		fmt.Println("-----------------------------")
-	}
+	// Тестируем addOne
+	fmt.Println(addOne(3))  // Ожидаем 4
+	fmt.Println(addOne(10)) // Ожидаем 11
+
+	// Пример с другим числом
+	addFive := CodeWars.Add(5)
+	fmt.Println(addFive(10)) // Ожидаем 15
+	fmt.Println(addFive(20)) // Ожидаем 25
 }
