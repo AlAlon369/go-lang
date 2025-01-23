@@ -19,5 +19,5 @@ func PairZeros(arr []uint64) []uint64 {
 		}
 	}
 
-	return result // Закрываем функцию, добавив этот return.
+	return result
 }
