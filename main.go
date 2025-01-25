@@ -6,23 +6,24 @@ import (
 )
 
 func main() {
-	// Набор тестов для проверки PairZeros
+	// Набор тестов для функции Strong
 	tests := []struct {
-		input    []uint64
-		expected []uint64
+		input    int
+		expected string
 	}{
-		{[]uint64{0, 0, 0}, []uint64{0, 0}},       // Несколько нулей подряд
-		{[]uint64{1, 0, 1, 0}, []uint64{1, 0, 1}}, // Чередование чисел и нулей
-		{[]uint64{}, []uint64{}},                  // Пустой массив
-		{[]uint64{1, 2, 3}, []uint64{1, 2, 3}},    // Без нулей
-		{[]uint64{0, 0}, []uint64{0}},             // Только пара нулей
+		{1, "STRONG!!!!"},      // 1! = 1
+		{145, "STRONG!!!!"},    // 1! + 4! + 5! = 145
+		{123, "Not Strong !!"}, // 1! + 2! + 3! = 9 != 123
+		{150, "Not Strong !!"}, // 1! + 5! + 0! = 122 != 150
+		{2, "STRONG!!!!"},      // 2! = 2
+		{40585, "STRONG!!!!"},  // 4! + 0! + 5! + 8! + 5! = 40585
 	}
 
 	// Запуск тестов
 	for i, test := range tests {
-		result := CodeWars.PairZeros(test.input)
-		fmt.Printf("Test %d: Input: %v, Expected: %v, Got: %v\n", i+1, test.input, test.expected, result)
-		if fmt.Sprintf("%v", result) != fmt.Sprintf("%v", test.expected) {
+		result := CodeWars.Strong(test.input)
+		fmt.Printf("Test %d: Input: %d, Expected: %s, Got: %s\n", i+1, test.input, test.expected, result)
+		if result != test.expected {
 			fmt.Printf("❌ Test %d failed!\n\n", i+1)
 		} else {
 			fmt.Printf("✅ Test %d passed!\n\n", i+1)
