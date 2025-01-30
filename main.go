@@ -6,29 +6,24 @@ import (
 )
 
 func main() {
-	// Набор тестов для функции Compose
-	testsCompose := []struct {
-		s1       string
-		s2       string
-		expected string
+	// Набор тестов для функции ContainAllRots
+	testsContainAllRots := []struct {
+		strng    string
+		arr      []string
+		expected bool
 	}{
-		{
-			"abcd\nefgh\nijkl\nmnop",
-			"qrst\nuvwx\nyz12\n3456",
-			"a3456\nefyz1\nijkuv\nmnopq",
-		},
-		{
-			"012\n345\n678",
-			"9ab\ncde\nfgh",
-			"0gh\n34f\n67e",
-		},
-		// Добавьте больше тестов по мере необходимости
+		{"bsjq", []string{"bsjq", "qbsj", "sjqb", "twZNsslC", "jqbs"}, true},
+		{"Ajylvpy", []string{"Ajylvpy", "ylvpyAj", "jylvpyA", "lvpyAjy", "pyAjylv", "vpyAjyl", "ipywee"}, false},
+		{"", []string{"anything"}, true},
+		{"abc", []string{"abc", "cab", "bca"}, true},
+		{"xyz", []string{"xzy", "yzx", "zxy"}, false},
 	}
 
-	// Запуск тестов для функции Compose
-	for i, test := range testsCompose {
-		result := CodeWars.Compose(test.s1, test.s2)
-		fmt.Printf("Test %d (Compose): Input: s1=%q, s2=%q, Expected: %q, Got: %q\n", i+1, test.s1, test.s2, test.expected, result)
+	// Запуск тестов для функции ContainAllRots
+	for i, test := range testsContainAllRots {
+		result := CodeWars.ContainAllRots(test.strng, test.arr)
+		fmt.Printf("Test %d (ContainAllRots): Input: strng=%q, arr=%v, Expected: %v, Got: %v\n",
+			i+1, test.strng, test.arr, test.expected, result)
 		if result != test.expected {
 			fmt.Printf("❌ Test %d failed!\n\n", i+1)
 		} else {
