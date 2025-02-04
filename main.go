@@ -6,23 +6,24 @@ import (
 )
 
 func main() {
-	// Набор тестов для функции StantonMeasure
+	// Набор тестов
 	tests := []struct {
-		arr      []int
-		expected int
+		input    string
+		expected string
 	}{
-		{[]int{1, 4, 3, 2, 1, 2, 3, 2}, 3},
-		{[]int{1, 4, 1, 2, 11, 2, 3, 1}, 1},
-		{[]int{1, 1, 1, 1}, 4},
-		{[]int{2, 2, 2, 2}, 0}, // 1 нет в массиве -> n = 0, а 0 нет -> возвращаем 0
-		{[]int{1, 1, 2, 2, 2, 3, 3, 3, 3}, 3},
+		{"our code", "edo cruo"},
+		{"your code rocks", "skco redo cruoy"},
+		{"codewars", "srawedoc"},
+		{"a b c", "c b a"},
+		{"ab cd ef", "fe dc ba"},
+		{"   a   ", "   a   "}, // Тест с пробелами в начале и конце
 	}
 
 	// Запуск тестов
 	for i, test := range tests {
-		result := CodeWars.StantonMeasure(test.arr)
-		fmt.Printf("Test %d: Input: %v, Expected: %d, Got: %d\n",
-			i+1, test.arr, test.expected, result)
+		result := CodeWars.Solved(test.input)
+		fmt.Printf("Test %d: Input: %q, Expected: %q, Got: %q\n",
+			i+1, test.input, test.expected, result)
 
 		if result != test.expected {
 			fmt.Printf("❌ Test %d failed!\n\n", i+1)
