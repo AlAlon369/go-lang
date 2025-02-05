@@ -9,20 +9,21 @@ func main() {
 	// Набор тестов
 	tests := []struct {
 		input    string
-		expected string
+		expected int
 	}{
-		{"our code", "edo cruo"},
-		{"your code rocks", "skco redo cruoy"},
-		{"codewars", "srawedoc"},
-		{"a b c", "c b a"},
-		{"ab cd ef", "fe dc ba"},
-		{"   a   ", "   a   "}, // Тест с пробелами в начале и конце
+		{"agrtertyfikfmroyrntbvsukldkfa", 6},
+		{"erfaiekjudhyfimngukduo", 4},
+		{"aeiou", 5},
+		{"uoiea", 1},
+		{"abcdeioua", 5},
+		{"xyz", 0},
+		{"aaeebbiioouu", 5},
 	}
 
 	// Запуск тестов
 	for i, test := range tests {
-		result := CodeWars.Solved(test.input)
-		fmt.Printf("Test %d: Input: %q, Expected: %q, Got: %q\n",
+		result := CodeWars.GetTheVowels(test.input)
+		fmt.Printf("Test %d: Input: %q, Expected: %d, Got: %d\n",
 			i+1, test.input, test.expected, result)
 
 		if result != test.expected {
