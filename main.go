@@ -8,23 +8,22 @@ import (
 func main() {
 	// Набор тестов
 	tests := []struct {
-		input    string
-		expected int
+		a0       int
+		a        int
+		p        float64
+		expected string
 	}{
-		{"agrtertyfikfmroyrntbvsukldkfa", 6},
-		{"erfaiekjudhyfimngukduo", 4},
-		{"aeiou", 5},
-		{"uoiea", 1},
-		{"abcdeioua", 5},
-		{"xyz", 0},
-		{"aaeebbiioouu", 5},
+		{100, 101, 0.98, "2017-01-01"},
+		{100, 150, 2.00, "2035-12-26"},
+		{5000, 7000, 1.50, "2031-10-13"},
+		{100, 200, 1.00, "2047-01-01"},
 	}
 
 	// Запуск тестов
 	for i, test := range tests {
-		result := CodeWars.GetTheVowels(test.input)
-		fmt.Printf("Test %d: Input: %q, Expected: %d, Got: %d\n",
-			i+1, test.input, test.expected, result)
+		result := CodeWars.DateNbDays(test.a0, test.a, test.p)
+		fmt.Printf("Test %d: a0=%d, a=%d, p=%.2f, Expected: %s, Got: %s\n",
+			i+1, test.a0, test.a, test.p, test.expected, result)
 
 		if result != test.expected {
 			fmt.Printf("❌ Test %d failed!\n\n", i+1)
