@@ -5,23 +5,24 @@ import (
 	"fmt"
 )
 
+// Тесты для проверки работы функции Triangle
 func main() {
 	tests := []struct {
-		a0       int
-		a        int
-		p        int
-		expected string
+		input    string
+		expected rune
 	}{
-		{100, 101, 1, "2017-01-01"},
-		{100, 150, 2, "2035-12-26"},
-		{5000, 7000, 1, "2031-10-13"},
-		{100, 200, 1, "2047-01-01"},
+		{"RRGBRGBB", 'G'},
+		{"RGB", 'B'},
+		{"R", 'R'},
+		{"GG", 'G'},
+		{"GB", 'R'},
+		{"BGR", 'G'},
 	}
 
 	for i, test := range tests {
-		result := CodeWars.DateNbDays(test.a0, test.a, test.p)
-		fmt.Printf("Test %d: a0=%d, a=%d, p=%d, Expected: %s, Got: %s\n",
-			i+1, test.a0, test.a, test.p, test.expected, result)
+		result := CodeWars.Triangle(test.input)
+		fmt.Printf("Test %d: Input: %s, Expected: %c, Got: %c\n",
+			i+1, test.input, test.expected, result)
 
 		if result != test.expected {
 			fmt.Printf("❌ Test %d failed!\n\n", i+1)
