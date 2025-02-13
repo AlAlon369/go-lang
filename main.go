@@ -7,20 +7,22 @@ import (
 
 func main() {
 	tests := []struct {
-		year     int
-		expected bool
+		input    string
+		expected rune
 	}{
-		{1600, true},  // Високосный (делится на 400)
-		{1700, false}, // Не високосный (делится на 100, но не на 400)
-		{2000, true},  // Високосный (делится на 400)
-		{2024, true},  // Високосный (делится на 4, но не на 100)
-		{2023, false}, // Не високосный (не делится на 4)
+		{"a", 'a'},
+		{"ab", 'a'},
+		{"axyzxyz", 'x'},
+		{"abcabc", 'a'},
+		{"zzzabczzz", 'z'},
+		{"abcdef", 'a'},
+		{"babaa", 'a'},
 	}
 
 	for i, test := range tests {
-		result := CodeWars.IsLeapYear(test.year)
-		fmt.Printf("Test %d: Year: %d, Expected: %t, Got: %t\n",
-			i+1, test.year, test.expected, result)
+		result := CodeWars.SolveString(test.input)
+		fmt.Printf("Test %d: Input: %s, Expected: %c, Got: %c\n",
+			i+1, test.input, test.expected, result)
 
 		if result != test.expected {
 			fmt.Printf("❌ Test %d failed!\n\n", i+1)
