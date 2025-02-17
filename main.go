@@ -7,24 +7,20 @@ import (
 
 func main() {
 	tests := []struct {
-		input    []int
-		expected []int
+		digits   int
+		expected int
 	}{
-		{[]int{}, []int{}},
-		{[]int{1}, []int{1}},
-		{[]int{2, 1}, []int{1, 2, 1}},
-		{[]int{1, 3, 2}, []int{1, 2, 3, 2, 1}},
-		{[]int{-8, 42, 18, 0, -16}, []int{-16, -8, 0, 18, 42, 18, 0, -8, -16}},
-		{[]int{-3, 15, 8, -1, 7, -1}, []int{-3, -1, -1, 7, 8, 15, 8, 7, -1, -1, -3}},
-		{[]int{-5, 10, 8, 10, 2, -3, 10}, []int{-5, -3, 2, 8, 10, 10, 10, 10, 10, 8, 2, -3, -5}},
+		{1, 3}, // sqrt(3^2) = 3
+		{3, 6}, // sqrt(3^2 + 1^2 + 4^2) = 5.099 -> 6
+		{5, 8}, // sqrt(3^2 + 1^2 + 4^2 + 1^2 + 5^2) = 7.416 -> 8
 	}
 
 	for i, test := range tests {
-		result := CodeWars.Mirror(test.input)
-		fmt.Printf("Test %d: Input: %v\nExpected: %v\nGot: %v\n\n",
-			i+1, test.input, test.expected, result)
+		result := CodeWars.SquarePi(test.digits)
+		fmt.Printf("Test %d: Digits: %d\nExpected: %d\nGot: %d\n",
+			i+1, test.digits, test.expected, result)
 
-		if fmt.Sprint(result) != fmt.Sprint(test.expected) {
+		if result != test.expected {
 			fmt.Printf("❌ Test %d failed!\n\n", i+1)
 		} else {
 			fmt.Printf("✅ Test %d passed!\n\n", i+1)
